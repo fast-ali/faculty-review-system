@@ -1,0 +1,2 @@
+ALTER TABLE reviews ADD COLUMN IF NOT EXISTS student_name VARCHAR(255);
+

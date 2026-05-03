@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign up — Faculty Review System</title>
+  <!-- Ionicons for input icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/signup.js" defer></script>
+</head>
+<body class="page">
+  <main class="login-section" role="main" aria-labelledby="signup-title">
+    <section class="panel" aria-describedby="signup-desc">
+      <h1 id="signup-title" class="panel-title">Create account</h1>
+      <p id="signup-desc" class="panel-sub">Faculty Review System — Sign up</p>
+
+      <form id="signup-form" class="login-form" action="/signup" method="post" th:object="${registrationRequest}" novalidate>
+        <div class="dialog-row">
+          <span id="signup-error" class="error-text" aria-live="polite" th:text="${signupError}"></span>
+          <span class="success-text" aria-live="polite" th:text="${signupSuccess}"></span>
+        </div>
+
+        <div class="inputbox">
+          <input id="username" name="username" type="text" required autocomplete="username" placeholder=" " th:field="*{username}" />
+          <label for="username">Username</label>
+          <ion-icon name="person-outline" class="input-icon"></ion-icon>
+        </div>
+
+        <div class="inputbox">
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder=" " th:field="*{email}" />
+          <label for="email">Email</label>
+          <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+        </div>
+
+        <div class="inputbox">
+          <input id="password" name="password" type="password" required autocomplete="new-password" placeholder=" " th:field="*{password}" />
+          <label for="password">Password</label>
+          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+        </div>
+
+        <div class="inputbox">
+          <input id="confirmPassword" name="confirmPassword" type="password" required autocomplete="new-password" placeholder=" " th:field="*{confirmPassword}" />
+          <label for="confirmPassword">Confirm password</label>
+          <ion-icon name="repeat-outline" class="input-icon"></ion-icon>
+        </div>
+
+        <div class="helpers">
+          <a href="/login" class="link-muted">Already have an account? Sign in</a>
+        </div>
+
+        <div class="password-requirements" aria-live="polite">
+          <p class="help-text">Your password must meet the following criteria:</p>
+          <ul id="pw-criteria">
+            <li data-valid="false" id="pw-length">At least 8 characters</li>
+            <li data-valid="false" id="pw-upper">At least one uppercase letter (A–Z)</li>
+            <li data-valid="false" id="pw-lower">At least one lowercase letter (a–z)</li>
+            <li data-valid="false" id="pw-digit">At least one digit (0–9)</li>
+            <li data-valid="false" id="pw-special">At least one special character (e.g. !@#$%^&*)</li>
+          </ul>
+        </div>
+
+        <button id="signup-submit" class="btn btn-primary" type="submit" disabled>Create account</button>
+
+      </form>
+    </section>
+  </main>
+</body>
+</html>

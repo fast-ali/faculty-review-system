@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bms-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-BMS_dev}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-admin123}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - bms_pgdata:/var/lib/postgresql/data
+
+volumes:
+  bms_pgdata:
+

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — Faculty Review System</title>
+  <!-- Ionicons for input icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="page">
+  <main class="login-section" role="main" aria-labelledby="login-title">
+    <section class="panel" aria-describedby="login-desc">
+      <h1 id="login-title" class="panel-title">Login</h1>
+      <p id="login-desc" class="panel-sub">Faculty Review System</p>
+
+      <form class="login-form" action="/login" method="post" novalidate>
+        <!-- server-side error placeholder (template engines can populate this) -->
+        <div class="dialog-row">
+          <span class="error-text" aria-live="polite" th:text="${loginError}"></span>
+          <span class="success-text" aria-live="polite" th:text="${loginSuccess}"></span>
+        </div>
+
+        <div class="inputbox">
+          <input id="username" name="username" type="text" required autocomplete="username" placeholder=" " />
+          <label for="username">Username</label>
+          <ion-icon name="person-outline" class="input-icon"></ion-icon>
+        </div>
+
+        <div class="inputbox">
+          <input id="password" name="password" type="password" required autocomplete="current-password" placeholder=" " />
+          <label for="password">Password</label>
+          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+          <button type="button" id="togglePassword" aria-label="Show password" style="position:absolute;right:34px;top:50%;transform:translateY(-50%);border:none;background:transparent;cursor:pointer;padding:0;line-height:0;">
+            <ion-icon id="togglePasswordIcon" name="eye-off-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="helpers">
+          <a href="#" class="link-muted">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log in</button>
+
+        <div class="register">
+          <p>Don't have an account? <a href="/signup" class="link-accent">Register</a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const password = document.getElementById('password');
+      const toggle = document.getElementById('togglePassword');
+      const icon = document.getElementById('togglePasswordIcon');
+      if (!password || !toggle || !icon) return;
+
+      toggle.addEventListener('click', function () {
+        const hidden = password.type === 'password';
+        password.type = hidden ? 'text' : 'password';
+        icon.setAttribute('name', hidden ? 'eye-outline' : 'eye-off-outline');
+        toggle.setAttribute('aria-label', hidden ? 'Hide password' : 'Show password');
+      });
+    })();
+  </script>
+</body>
+</html>

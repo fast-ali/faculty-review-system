@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Dr. Ahmad Raza Shahid", "department": "CS", "imageUrl": "/images/Ahmad Raza Shahid.webp" },
+  { "id": 2, "name": "Dr. Ali Zeeshan Ijaz", "department": "AI & DS", "imageUrl": "/images/Dr. Ali Zeeshan Ijaz.webp" },
+  { "id": 3, "name": "Dr. Hina Ayaz", "department": "SE", "imageUrl": "/images/Dr. Hina Ayaz.webp" },
+  { "id": 4, "name": "Ms. Asma Tufail", "department": "CS", "imageUrl": "/images/Ms. Asma Tufail.webp" }
+]
+
